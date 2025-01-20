@@ -63,6 +63,10 @@ spec:
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1Gi
       containers:
       - name: mysql
         image: mysql:5.7
