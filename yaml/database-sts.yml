@@ -1,48 +1,48 @@
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  labels:
-    app: sts
-  name: sts
-spec:
-  serviceName: "mysql"
-  replicas: 3
-  selector:
-    matchLabels:
-      app: sts
-  template:
-    metadata:
-      labels:
-        app: sts
-    spec:
-      containers:
-        name: mysql
-      - image: mysql
-        ports:
-        - containerPort: 3306
-        env: 
-          - name: MYSQL_ROOT_PASSWORD   # Fix: added missing 'name' key
-            value: password
-          - name: MYSQL_DATABASE        # Fix: added missing 'name' key
-            value: istdatabase
-          - name: MYSQL_USER            # Fix: added missing 'name' key
-            value: user
-          - name: MYSQL_PASSWORD        # Fix: added missing 'name' key
-            value: userpassword
-        volumeMounts:
-        - name: v1
-          mountPath: /var/lib/mysql
-      volumes:
-      - name: v1
-        # persistentVolumeClaim:
-        #   claimName: pvc1
-  volumeClaimTemplates:
-    - metadata:
-        name: data
-      spec:
-        storageClassName: standard
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 1Gi
+# apiVersion: apps/v1
+# kind: StatefulSet
+# metadata:
+#   labels:
+#     app: sts
+#   name: sts
+# spec:
+#   serviceName: "mysql"
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: sts
+#   template:
+#     metadata:
+#       labels:
+#         app: sts
+#     spec:
+#       containers:
+#         name: mysql
+#       - image: mysql
+#         ports:
+#         - containerPort: 3306
+#         env: 
+#           - name: MYSQL_ROOT_PASSWORD   # Fix: added missing 'name' key
+#             value: password
+#           - name: MYSQL_DATABASE        # Fix: added missing 'name' key
+#             value: istdatabase
+#           - name: MYSQL_USER            # Fix: added missing 'name' key
+#             value: user
+#           - name: MYSQL_PASSWORD        # Fix: added missing 'name' key
+#             value: userpassword
+#         volumeMounts:
+#         - name: v1
+#           mountPath: /var/lib/mysql
+#       volumes:
+#       - name: v1
+#         # persistentVolumeClaim:
+#         #   claimName: pvc1
+#   volumeClaimTemplates:
+#     - metadata:
+#         name: data
+#       spec:
+#         storageClassName: standard
+#         accessModes:
+#           - ReadWriteOnce
+#         resources:
+#           requests:
+#             storage: 1Gi
