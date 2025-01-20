@@ -20,11 +20,9 @@ spec:
         ports:
         - containerPort: 8080  # Port for backend application
         env:
-        - name: DATA_URL
-          value: "jdbc:mysql://mysql:3306/istdatabase"  # Connect to MySQL service
-        - name: MYSQL_USER
-          value: "root"  # MySQL user
-        - name: MYSQL_PASSWORD
-          value: "password"  # MySQL user password
-      #  - name: SPRING_DATASOURCE_DATABASE
-     #     value: "istone_backend"  # Database name
+        - name: DATABASE_URL
+          value: "jdbc:mysql://mysql:3306/istdatabase"
+        - name: DATABASE_USERNAME
+          value: "root"
+        - name: DATABASE_PASSWORD
+          value: "password"
