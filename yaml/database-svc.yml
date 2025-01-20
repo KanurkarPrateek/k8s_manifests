@@ -9,4 +9,4 @@ spec:
   ports:
     - protocol: TCP
       port: 3306  # MySQL port
-  clusterIP: None  # Headless service, allowing direct pod communication
+ # Headless service, allowing direct pod communication
