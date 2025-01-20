@@ -1,30 +1,30 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: istone-mysql-deployment
-  namespace: 
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: mysql
-  template:
-    metadata:
-      labels:
-        app: mysql
-    spec:
-      containers:
-      - name: istone-mysql-container
-        image: mysql:8.0
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 3306  # MySQL port
-        env: 
-          - name: MYSQL_ROOT_PASSWORD   # Fix: added missing 'name' key
-            value: password
-          - name: MYSQL_DATABASE        # Fix: added missing 'name' key
-            value: istdatabase
-          - name: MYSQL_USER            # Fix: added missing 'name' key
-            value: user
-          - name: MYSQL_PASSWORD        # Fix: added missing 'name' key
-            value: userpassword # MySQL user password
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: istone-mysql-deployment
+#   namespace: 
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: mysql
+#   template:
+#     metadata:
+#       labels:
+#         app: mysql
+#     spec:
+#       containers:
+#       - name: istone-mysql-container
+#         image: mysql:8.0
+#         imagePullPolicy: Always
+#         ports:
+#         - containerPort: 3306  # MySQL port
+#         env: 
+#           - name: MYSQL_ROOT_PASSWORD   # Fix: added missing 'name' key
+#             value: password
+#           - name: MYSQL_DATABASE        # Fix: added missing 'name' key
+#             value: istdatabase
+#           - name: MYSQL_USER            # Fix: added missing 'name' key
+#             value: user
+#           - name: MYSQL_PASSWORD        # Fix: added missing 'name' key
+#             value: userpassword # MySQL user password
