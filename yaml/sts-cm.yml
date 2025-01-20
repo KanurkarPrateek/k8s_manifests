@@ -13,4 +13,4 @@ data:
   replica.cnf: |
     # Apply this config only on replicas.
     [mysqld]
-    super-read-only
+    super-read-only 

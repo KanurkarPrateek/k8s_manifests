@@ -162,8 +162,8 @@ spec:
   - metadata:
       name: data
     spec:
-      storageClassName: "ebs-sc"
+      storageClassName: "ebs1"
       accessModes: ["ReadWriteOnce"]
       resources:
         requests:
-          storage: 5Gi
+          storage: 1Gi
