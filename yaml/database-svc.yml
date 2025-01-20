@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: istone-mysql-service
+  namespace: istone
+spec:
+  selector:
+    app: istone-mysql
+  ports:
+    - protocol: TCP
+      port: 3306  # MySQL port
+  clusterIP: None  # Headless service, allowing direct pod communication
