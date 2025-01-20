@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: istone-frontend-deployment
+  namespace: istone
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: istone-frontend
+  template:
+    metadata:
+      labels:
+        app: istone-frontend
+    spec:
+      containers:
+      - name: istone-frontend-container
+        image: public.ecr.aws/y8u8k9s8/team4/istone:frontend-1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+        - name: REACT_APP_BACKEND_URL
+          value: "http://18.223.23.159:32222/api/tutorials"
