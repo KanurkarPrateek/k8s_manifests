@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: istone-backend-service
+  namespace: istone
+spec:
+  selector:
+    app: istone-backend  # Matches the backend pods
+  ports:
+    - protocol: TCP
+      port: 8080  # Port to access the backend internally
+      targetPort: 8080  # The port on which the backend container is running
+      nodePort: 32222  # Exposed port on the nodes for external access (optional)
+  type: NodePort  # Expose the service externally through the node port
