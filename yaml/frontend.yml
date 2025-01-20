@@ -21,4 +21,4 @@ spec:
         - containerPort: 3000
         env:
         - name: REACT_APP_BACKEND_URL
-          value: "http://18.223.23.159:32222/api/tutorials"
+          value: "http://istone-backend-service:8080/api/tutorials"

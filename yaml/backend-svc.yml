@@ -10,4 +10,4 @@ spec:
     - protocol: TCP
       port: 8080  # Port to access the backend internally
       targetPort: 8080  # The port on which the backend container is running # Exposed port on the nodes for external access (optional)
-  type: NodePort  # Expose the service externally through the node port
+  type: ClusterIP  # Expose the service externally through the node port
