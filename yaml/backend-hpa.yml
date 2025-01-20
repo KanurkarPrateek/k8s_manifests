@@ -1,0 +1,17 @@
+#backend
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  creationTimestamp: null
+  name: istone-backend
+spec:
+  maxReplicas: 6
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: istone-backend
+  targetCPUUtilizationPercentage: 30
+status:
+  currentReplicas: 0
+  desiredReplicas: 0
