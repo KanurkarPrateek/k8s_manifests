@@ -40,10 +40,6 @@ spec:
           mountPath: /mnt/conf.d
         - name: config-map
           mountPath: /mnt/config-map
-        resources:
-          requests:
-            cpu: 500m
-            memory: 1Gi
       - name: clone-mysql
         image: gcr.io/google-samples/xtrabackup:1.0
         command:
@@ -67,10 +63,6 @@ spec:
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
-        resources:
-          requests:
-            cpu: 500m
-            memory: 1Gi
       containers:
       - name: mysql
         image: mysql:5.7
@@ -174,4 +166,4 @@ spec:
       accessModes: ["ReadWriteOnce"]
       resources:
         requests:
-          storage: 2Gi
+          storage: 10Gi
