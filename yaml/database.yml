@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: istone-mysql-deployment
   namespace: 
@@ -8,6 +8,7 @@ spec:
   selector:
     matchLabels:
       app: mysql
+  serviceName: mysql
   template:
     metadata:
       labels:
