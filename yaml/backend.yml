@@ -4,7 +4,7 @@ metadata:
   name: istone-backend-deployment
   namespace: istone
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: istone-backend
@@ -21,7 +21,7 @@ spec:
         - containerPort: 8080  # Port for backend application
         env:
         - name: DATA_URL
-          value: "jdbc:mysql://istone-mysql-service:3306/istdatabase?useSSL=false&allowPublicKeyRetrieval=true"  # Connect to MySQL service
+          value: "jdbc:mysql://mysql:3306/istdatabase"  # Connect to MySQL service
         - name: MYSQL_USER
           value: "root"  # MySQL user
         - name: MYSQL_PASSWORD
